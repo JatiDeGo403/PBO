@@ -19,7 +19,7 @@ public class Pegawai{
         return nama;
     }
 
-    public void setNama(){
+    public void setNama(String nama){
         this.nama = nama;
     }
     

@@ -9,7 +9,7 @@ public class Konsultasi{
         return tanggal;
     }
 
-    public void setTanggal(String tanggal){
+    public void setTanggal(LocalDate tanggal){
         this.tanggal = tanggal;
     }
 

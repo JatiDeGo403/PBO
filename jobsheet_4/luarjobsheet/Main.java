@@ -2,42 +2,40 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        // Inisialisasi objek Barang beserta stok dan harga 
-        Barang micin = new Barang("B01", "Micin", 100, 5000);
-        Barang arduino = new Barang("B02", "Arduino Uno", 50, 150000);
-        Barang raspberry = new Barang("B03", "Raspberry Pi", 25, 850000);
+         
+        Barang sawit = new Barang("B01", "sawit", 100, 5000);
+        Barang minyak_sawit = new Barang("B02", "minyak sawit", 50, 21000);
+        Barang E50 = new Barang("B03", "E50 ", 25, 6800);
+    
+        
+        sawit.updateHarga(7000);
 
         // Inisialisasi objek Pembeli
         Pembeli ghost = new Pembeli("404", "ghost");
         Pembeli dewojenenge = new Pembeli("403", "dewojenenge");
 
-        // Mendapatkan tanggal hari ini
         LocalDate hariIni = LocalDate.now();
 
-        // --- Transaksi Pembeli 1: ghost ---
-        ghost.tambahRincian(new detailPesanan("P-001", hariIni, micin, 2));
-        ghost.tambahRincian(new detailPesanan("P-002", hariIni, arduino, 2));
-        ghost.tambahRincian(new detailPesanan("P-003", hariIni, raspberry, 2));
+        // apalah satu
+        ghost.tambahRincian(new detailPesanan("P-001", hariIni, sawit, 2));
+        ghost.tambahRincian(new detailPesanan("P-002", hariIni, minyak_sawit, 2));
+        ghost.tambahRincian(new detailPesanan("P-003", hariIni, E50, 2));
 
-        // --- Transaksi Pembeli 2: dewojenenge ---
-        dewojenenge.tambahRincian(new detailPesanan("P-004", hariIni, micin, 2));
-        dewojenenge.tambahRincian(new detailPesanan("P-005", hariIni, arduino, 2));
-        dewojenenge.tambahRincian(new detailPesanan("P-006", hariIni, raspberry, 2));
+        // apalah satu
+        dewojenenge.tambahRincian(new detailPesanan("P-004", hariIni, sawit, 2));
+        dewojenenge.tambahRincian(new detailPesanan("P-005", hariIni, minyak_sawit, 2));
+        dewojenenge.tambahRincian(new detailPesanan("P-006", hariIni, E50, 2));
 
-        // Output Rincian Pesanan
         cetakStrukPembeli(ghost);
         cetakStrukPembeli(dewojenenge);
         
-        // Cek sisa stok barang
-        System.out.println("=== SISA STOK BARANG ===");
-        System.out.println(micin.getNamaBarang() + ": " + micin.getKetersediaanBarang());
-        System.out.println(arduino.getNamaBarang() + ": " + arduino.getKetersediaanBarang());
-        System.out.println(raspberry.getNamaBarang() + ": " + raspberry.getKetersediaanBarang());
+        System.out.println(" SISA STOK ");
+        System.out.println(sawit.getNamaBarang() + ": " + sawit.getKetersediaanBarang());
+        System.out.println(minyak_sawit.getNamaBarang() + ": " + minyak_sawit.getKetersediaanBarang());
+        System.out.println(E50.getNamaBarang() + ": " + E50.getKetersediaanBarang());
     }
 
-    // Method helper untuk menampilkan data struk ke terminal
-    private static void cetakStrukPembeli(Pembeli pembeli) {
-        System.out.println("=====================================");
+        private static void cetakStrukPembeli(Pembeli pembeli) {
         System.out.println("ID Pembeli   : " + pembeli.getIdPembeli());
         System.out.println("Nama Pembeli : " + pembeli.getNama());
         System.out.println("Rincian Pesanan:");
@@ -52,6 +50,5 @@ public class Main {
             totalBelanja += dp.getJumlahHarusDibayar();
         }
         System.out.println("Total Bayar  : Rp" + totalBelanja);
-        System.out.println("=====================================\n");
     }
 }

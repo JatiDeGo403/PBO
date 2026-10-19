@@ -1,5 +1,3 @@
-// File: Pembeli.java
-
 import java.util.ArrayList;
 
 public class Pembeli {
@@ -10,12 +8,20 @@ public class Pembeli {
     public Pembeli(String idPembeli, String nama) {
         this.idPembeli = idPembeli;
         this.nama = nama;
-        this.rincianDibeli = new ArrayList<>(); // Inisialisasi ArrayList kosong
+        this.rincianDibeli = new ArrayList<>();
     }
 
-    public String getIdPembeli() { return idPembeli; }
-    public String getNama() { return nama; }
-    public ArrayList<detailPesanan> getRincianDibeli() { return rincianDibeli; }
+    public String getIdPembeli() { 
+        return idPembeli; 
+    }
+
+    public String getNama() { 
+        return nama; 
+    }
+
+    public ArrayList<detailPesanan> getRincianDibeli() { 
+        return rincianDibeli; 
+    }
 
     public void tambahRincian(detailPesanan detail) {
         this.rincianDibeli.add(detail);

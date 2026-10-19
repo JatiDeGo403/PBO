@@ -1,5 +1,3 @@
-// File: DetailPesanan.java
-
 import java.time.LocalDate;
 
 public class detailPesanan {
@@ -15,25 +13,27 @@ public class detailPesanan {
         this.barang = barang;
         this.jumlahBarang = jumlahBarang;
         
-        // Kalkulasi jumlah yang harus dibayar: harga barang * jumlah yang dibeli
         this.jumlahHarusDibayar = barang.getHarga() * jumlahBarang;
         
-        // Perbarui stok ketersediaan barang
         this.barang.updateKetersediaan(jumlahBarang);
     }
 
     public String getIdPesanan() { 
         return idPesanan; 
     }
+
     public LocalDate getTanggal() { 
         return tanggal; 
     }
+
     public Barang getBarang() { 
         return barang; 
     }
+
     public int getJumlahBarang() { 
         return jumlahBarang; 
     }
+    
     public double getJumlahHarusDibayar() { 
         return jumlahHarusDibayar; 
     }
